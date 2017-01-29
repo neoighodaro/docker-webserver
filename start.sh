@@ -37,7 +37,7 @@ fi
 # Display PHP error's or not
 # ------------------------------------------
 
-if [[ "$PRODUCTION" != "1" ]] ; then
+if [[ "$PRODUCTION" == "1" ]] ; then
     echo php_flag[display_errors] = off >> /etc/php7/php-fpm.conf
     echo log_level = warning >> /etc/php7/php-fpm.conf
     sed -i "s/expose_php = On/expose_php = Off/g" /etc/php7/conf.d/php.ini
