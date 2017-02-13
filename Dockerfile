@@ -32,6 +32,7 @@ RUN echo @testing http://nl.alpinelinux.org/alpine/edge/testing >> /etc/apk/repo
     php7-intl \
     php7-sqlite3 \
     php7-xml \
+    php7-dom \
     php7-curl \
     php7-openssl \
     php7-iconv \
