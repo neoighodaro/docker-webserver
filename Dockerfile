@@ -37,6 +37,7 @@ RUN apk add --no-cache --update php-fpm@php \
     php-session@php \
     php-dom@php \
     php-ctype@php \
+    php-zlib@php \
     php-json@php \
     php-xml@php && \
     ln -s /usr/bin/php7 /usr/bin/php
