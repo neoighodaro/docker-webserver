@@ -8,7 +8,7 @@ Using the Laravel installer you can get up and running with a Laravel applicatio
 
 - Create a new Laravel application `$ laravel new testapp`
 - Change to the applications directory `$ cd testapp`
-- Start the container and attach the application. `$ docker run -d -p 4488:80 --name=testapp -v $PWD:/var/www webserver`
+- Start the container and attach the application. `$ docker run -d -p 4488:80 --name=testapp -v $PWD:/var/www creativitykills/nginx-php-server`
 - Visit the Docker container URL like [http://0.0.0.0:4488](http://0.0.0.0:4488). Profit!
 
 ### Environment Variables
