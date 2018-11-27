@@ -30,6 +30,10 @@ if [[ "${LARAVEL_APP}" == "1" ]]; then
     fi
 fi
 
+# SYMLINK CONFIGURATION FILES.
+ln -s /etc/php7/php.ini /etc/php7/conf.d/php.ini
+ln -s /etc/nginx/sites-available/default.conf /etc/nginx/sites-enabled/default.conf
+
 # PRODUCTION LEVEL CONFIGURATION.
 if [[ "${PRODUCTION}" == "1" ]]; then
     sed -i -e "s/;log_level = notice/log_level = warning/g" /etc/php7/php-fpm.conf
@@ -53,9 +57,6 @@ if [ ! -z "${PHP_UPLOAD_MAX_FILESIZE}" ]; then
     sed -i "s/upload_max_filesize = 10M/upload_max_filesize = ${PHP_UPLOAD_MAX_FILESIZE}M/g" /etc/php7/conf.d/php.ini
 fi
 
-# SYMLINK CONFIGURATION FILES.
-ln -s /etc/php7/php.ini /etc/php7/conf.d/php.ini
-ln -s /etc/nginx/sites-available/default.conf /etc/nginx/sites-enabled/default.conf
 
 find /etc/php7/conf.d/ -name "*.ini" -exec sed -i -re 's/^(\s*)#(.*)/\1;\2/g' {} \;
 
