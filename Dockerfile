@@ -17,7 +17,7 @@ ADD https://php.codecasts.rocks/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.
 # IMAGE ARGUMENTS WITH DEFAULTS.
 ARG PHP_VERSION=7.2
 ARG ALPINE_VERSION=3.7
-ARG COMPOSER_HASH=$(wget -q -O - https://composer.github.io/installer.sig)
+ARG COMPOSER_HASH=48e3236262b34d30969dca3c37281b3b4bbe3221bda826ac6a9a62d6444cdb0dcd0615698a5cbe587c3f0fe57a54d8f5
 ARG NGINX_HTTP_PORT=80
 ARG NGINX_HTTPS_PORT=443
 
