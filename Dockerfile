@@ -1,7 +1,7 @@
 # Alpine Image for Nginx and PHP
 
 # NGINX x ALPINE.
-FROM nginx:mainline-alpine
+FROM nginx:1.15.7-alpine
 
 # MAINTAINER OF THE PACKAGE.
 LABEL maintainer="Neo Ighodaro <neo@creativitykills.co>"
@@ -17,7 +17,7 @@ ADD https://php.codecasts.rocks/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.
 # IMAGE ARGUMENTS WITH DEFAULTS.
 ARG PHP_VERSION=7.2
 ARG ALPINE_VERSION=3.7
-ARG COMPOSER_HASH=544e09ee996cdf60ece3804abc52599c22b1f40f4323403c44d44fdfdd586475ca9813a858088ffbc1f233e9b180f061
+ARG COMPOSER_HASH=$(wget -q -O - https://composer.github.io/installer.sig)
 ARG NGINX_HTTP_PORT=80
 ARG NGINX_HTTPS_PORT=443
 
