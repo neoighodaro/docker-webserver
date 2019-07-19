@@ -18,8 +18,8 @@ Here are some args
 - `NGINX_HTTP_PORT` - HTTP port. Default: `80`.
 - `NGINX_HTTPS_PORT` - HTTPS port. Default: `443`.
 - `COMPOSER_HASH` - Composer hash. Default: `544e09ee996cdf60ece3804abc52599c22b1f40f4323403c44d44fdfdd586475ca9813a858088ffbc1f233e9b180f061`.
-- `PHP_VERSION` - The PHP version to install. Supports: `7.2`. Default: `7.2`.
-- `ALPINE_VERSION` - The Alpine version. Supports: `3.7`. Default: `3.7`.
+- `PHP_VERSION` - The PHP version to install. Supports: `7.3`. Default: `7.3`.
+- `ALPINE_VERSION` - The Alpine version. Supports: `3.9`. Default: `3.9`.
 
 ### Environment Variables
 
