@@ -12,7 +12,7 @@ RUN apk --update --no-cache add ca-certificates \
     supervisor
 
 # trust this project public key to trust the packages.
-ADD https://php.codecasts.rocks/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.pub
+ADD https://dl.bintray.com/php-alpine/key/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.pub
 
 # IMAGE ARGUMENTS WITH DEFAULTS.
 ARG PHP_VERSION=7.3
@@ -33,6 +33,7 @@ RUN apk add --no-cache --update php-fpm@php \
     php-pdo@php \
     php-pdo_mysql@php \
     php-mbstring@php \
+    php-mysqlnd@php \
     php-phar@php \
     php-session@php \
     php-dom@php \
