@@ -9,7 +9,8 @@ MAINTAINER "Pamela Argentino <pamela@ensinando.cloud>"
 # INSTALL SOME SYSTEM PACKAGES.
 RUN apk --update --no-cache add ca-certificates \
     bash \
-    supervisor
+    supervisor \
+    curl
 
 # trust this project public key to trust the packages.
 ADD https://dl.bintray.com/php-alpine/key/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.pub
@@ -40,6 +41,7 @@ RUN apk add --no-cache --update php-fpm@php \
     php-ctype@php \
     php-zlib@php \
     php-json@php \
+    php-curl@php \
     php-xml@php && \
     ln -s /usr/bin/php7 /usr/bin/php
 
