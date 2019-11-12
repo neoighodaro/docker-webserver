@@ -12,7 +12,7 @@ RUN apk --update --no-cache add ca-certificates \
     supervisor
 
 # trust this project public key to trust the packages.
-ADD https://php.codecasts.rocks/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.pub
+ADD https://dl.bintray.com/php-alpine/key/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.pub
 
 # IMAGE ARGUMENTS WITH DEFAULTS.
 ARG PHP_VERSION=7.2
@@ -24,22 +24,22 @@ ARG NGINX_HTTPS_PORT=443
 # CONFIGURE ALPINE REPOSITORIES AND PHP BUILD DIR.
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/v${ALPINE_VERSION}/main" > /etc/apk/repositories && \
     echo "http://dl-cdn.alpinelinux.org/alpine/v${ALPINE_VERSION}/community" >> /etc/apk/repositories && \
-    echo "@php https://php.codecasts.rocks/v${ALPINE_VERSION}/php-${PHP_VERSION}" >> /etc/apk/repositories
+    echo "https://dl.bintray.com/php-alpine/v${ALPINE_VERSION}/php-${PHP_VERSION}" >> /etc/apk/repositories
 
 # INSTALL PHP AND SOME EXTENSIONS. SEE: https://github.com/codecasts/php-alpine
-RUN apk add --no-cache --update php-fpm@php \
-    php@php \
-    php-openssl@php \
-    php-pdo@php \
-    php-pdo_mysql@php \
-    php-mbstring@php \
-    php-phar@php \
-    php-session@php \
-    php-dom@php \
-    php-ctype@php \
-    php-zlib@php \
-    php-json@php \
-    php-xml@php && \
+RUN apk add --no-cache --update php-fpm \
+    php \
+    php-openssl \
+    php-pdo \
+    php-pdo_mysql \
+    php-mbstring \
+    php-phar \
+    php-session \
+    php-dom \
+    php-ctype \
+    php-zlib \
+    php-json \
+    php-xml && \
     ln -s /usr/bin/php7 /usr/bin/php
 
 # CONFIGURE WEB SERVER.
