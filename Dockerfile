@@ -1,7 +1,7 @@
 # Alpine Image for Nginx and PHP
 
 # NGINX x ALPINE.
-FROM nginx:1.15.7-alpine
+FROM nginx:1.17.5-alpine
 
 # MAINTAINER OF THE PACKAGE.
 LABEL maintainer="Neo Ighodaro <neo@creativitykills.co>"
@@ -15,8 +15,8 @@ RUN apk --update --no-cache add ca-certificates \
 ADD https://dl.bintray.com/php-alpine/key/php-alpine.rsa.pub /etc/apk/keys/php-alpine.rsa.pub
 
 # CONFIGURE ALPINE REPOSITORIES AND PHP BUILD DIR.
-ARG PHP_VERSION=7.2
-ARG ALPINE_VERSION=3.7
+ARG PHP_VERSION=7.3
+ARG ALPINE_VERSION=3.9
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/v${ALPINE_VERSION}/main" > /etc/apk/repositories && \
     echo "http://dl-cdn.alpinelinux.org/alpine/v${ALPINE_VERSION}/community" >> /etc/apk/repositories && \
     echo "https://dl.bintray.com/php-alpine/v${ALPINE_VERSION}/php-${PHP_VERSION}" >> /etc/apk/repositories
