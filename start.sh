@@ -12,7 +12,7 @@ fi
 ## 💡 THIS MAY MAKE THE BUILD SLOWER BECAUSE IT HAS TO FETCH PACKAGES.
 if [[ ! -z "${COMPOSER_DIRECTORY}" ]] && [[ "${COMPOSER_UPDATE_ON_BUILD}" == "1" ]]; then
     cd ${COMPOSER_DIRECTORY}
-    composer update && composer dump-autoload -o
+    composer install && composer dump-autoload -o
 fi
 
 # LARAVEL APPLICATION
