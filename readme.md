@@ -28,7 +28,7 @@ Here are some configurable environment values.
 - `WEBROOT` – Path to the web root. Default: `/var/www`
 - `WEBROOT_PUBLIC` – Path to the web root. Default: `/var/www/public`
 - `COMPOSER_DIRECTORY` - Path to the `composer.json` containing directory. Default: `/var/www`.
-- `COMPOSER_UPDATE_ON_BUILD` - Should `composer update` run on build. Default: `0`.
+- `COMPOSER_INSTALL_ON_BUILD` - Should `composer install` run on build. Default: `0`.
 - `LARAVEL_APP` - Is this a Laravel application. Default `0`.
 - `RUN_LARAVEL_SCHEDULER` - Should the Laravel scheduler command run. Only works if `LARAVEL_APP` is `1`. Default: `0`.
 - `RUN_LARAVEL_MIGRATIONS_ON_BUILD` - Should the migrate command run during build. Only works if `LARAVEL_APP` is `1`. Default: `0`.
