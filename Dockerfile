@@ -1,7 +1,7 @@
 # Alpine Image for Nginx and PHP
 
 # NGINX x ALPINE.
-FROM nginx:1.17.1-alpine
+FROM nginx:1.17.9-alpine
 
 # MAINTAINER OF THE PACKAGE.
 MAINTAINER "Pamela Argentino <pamela@ensinando.cloud>"
@@ -18,7 +18,7 @@ ADD https://dl.bintray.com/php-alpine/key/php-alpine.rsa.pub /etc/apk/keys/php-a
 # IMAGE ARGUMENTS WITH DEFAULTS.
 ARG PHP_VERSION=7.3
 ARG ALPINE_VERSION=3.9
-ARG COMPOSER_HASH=48e3236262b34d30969dca3c37281b3b4bbe3221bda826ac6a9a62d6444cdb0dcd0615698a5cbe587c3f0fe57a54d8f5
+ARG COMPOSER_HASH=e0012edf3e80b6978849f5eff0d4b4e4c79ff1609dd1e613307e16318854d24ae64f26d17af3ef0bf7cfb710ca74755a
 ARG NGINX_HTTP_PORT=80
 ARG NGINX_HTTPS_PORT=443
 
