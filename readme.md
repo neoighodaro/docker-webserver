@@ -17,9 +17,9 @@ Here are some args
 
 - `NGINX_HTTP_PORT` - HTTP port. Default: `80`.
 - `NGINX_HTTPS_PORT` - HTTPS port. Default: `443`.
-- `COMPOSER_HASH` - Composer hash. Default: `544e09ee996cdf60ece3804abc52599c22b1f40f4323403c44d44fdfdd586475ca9813a858088ffbc1f233e9b180f061`.
-- `PHP_VERSION` - The PHP version to install. Supports: `7.2`. Default: `7.2`.
-- `ALPINE_VERSION` - The Alpine version. Supports: `3.7`. Default: `3.7`.
+- `COMPOSER_HASH` - Composer hash. Default: `a5c698ffe4b8e849a443b120cd5ba38043260d5c4023dbf93e1558871f1f07f58274fc6f4c93bcfd858c6bd0775cd8d1`.
+- `PHP_VERSION` - The PHP version to install. Supports: `7.3`. Default: `7.3`.
+- `ALPINE_VERSION` - The Alpine version. Supports: `3.9`. Default: `3.9`.
 
 ### Environment Variables
 
@@ -28,7 +28,7 @@ Here are some configurable environment values.
 - `WEBROOT` – Path to the web root. Default: `/var/www`
 - `WEBROOT_PUBLIC` – Path to the web root. Default: `/var/www/public`
 - `COMPOSER_DIRECTORY` - Path to the `composer.json` containing directory. Default: `/var/www`.
-- `COMPOSER_UPDATE_ON_BUILD` - Should `composer update` run on build. Default: `0`.
+- `COMPOSER_INSTALL_ON_BUILD` - Should `composer install` run on build. Default: `0`.
 - `LARAVEL_APP` - Is this a Laravel application. Default `0`.
 - `RUN_LARAVEL_SCHEDULER` - Should the Laravel scheduler command run. Only works if `LARAVEL_APP` is `1`. Default: `0`.
 - `RUN_LARAVEL_MIGRATIONS_ON_BUILD` - Should the migrate command run during build. Only works if `LARAVEL_APP` is `1`. Default: `0`.
