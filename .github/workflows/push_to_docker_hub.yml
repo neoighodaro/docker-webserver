@@ -16,7 +16,13 @@ jobs:
   build_and_push:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
+    
+    # Variables used  
+    env:
+      image_name: narteysarso/nginx-php-server:latest
+      DOCKER_ID: ${{ secrets.DOCKER_ID }}
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+    
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -25,14 +31,13 @@ jobs:
     # build docker image with a tag
     - name: build docker image
       run: |
-        docker build -t narteysarso/nginx-php-server:latest .
+        docker build -t $image_name .
+    
     # login to docker hub 
-    - name: login to docker hub
-      env:
-        DOCKER_ID: ${{ secrets.DOCKER_ID }}
-        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}  
+    - name: login to docker hub  
       run: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+    
     # push image to docker hub
     - name: push to docker
-      run: docker push narteysarso/nginx-php-server:latest
+      run: docker push $image_name
       
