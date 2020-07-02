@@ -19,7 +19,7 @@ jobs:
     
     # Variables used  
     env:
-      image_name: narteysarso/nginx-php-server:latest
+      image_name: creativitykills/nginx-php-server:latest
       DOCKER_ID: ${{ secrets.DOCKER_ID }}
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
     
