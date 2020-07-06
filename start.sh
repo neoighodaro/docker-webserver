@@ -10,9 +10,9 @@ fi
 
 # UPDATE COMPOSER PACKAGES ON BUILD.
 ## 💡 THIS MAY MAKE THE BUILD SLOWER BECAUSE IT HAS TO FETCH PACKAGES.
-if [[ ! -z "${COMPOSER_DIRECTORY}" ]] && [[ "${COMPOSER_UPDATE_ON_BUILD}" == "1" ]]; then
+if [[ ! -z "${COMPOSER_DIRECTORY}" ]] && [[ "${COMPOSER_INSTALL_ON_BUILD}" == "1" ]]; then
     cd ${COMPOSER_DIRECTORY}
-    composer update && composer dump-autoload -o
+    composer install && composer dump-autoload -o
 fi
 
 # LARAVEL APPLICATION
@@ -29,6 +29,10 @@ if [[ "${LARAVEL_APP}" == "1" ]]; then
         crond
     fi
 fi
+
+# SYMLINK CONFIGURATION FILES.
+ln -s /etc/php7/php.ini /etc/php7/conf.d/php.ini
+ln -s /etc/nginx/sites-available/default.conf /etc/nginx/sites-enabled/default.conf
 
 # PRODUCTION LEVEL CONFIGURATION.
 if [[ "${PRODUCTION}" == "1" ]]; then
@@ -53,9 +57,6 @@ if [ ! -z "${PHP_UPLOAD_MAX_FILESIZE}" ]; then
     sed -i "s/upload_max_filesize = 10M/upload_max_filesize = ${PHP_UPLOAD_MAX_FILESIZE}M/g" /etc/php7/conf.d/php.ini
 fi
 
-# SYMLINK CONFIGURATION FILES.
-ln -s /etc/php7/php.ini /etc/php7/conf.d/php.ini
-ln -s /etc/nginx/sites-available/default.conf /etc/nginx/sites-enabled/default.conf
 
 find /etc/php7/conf.d/ -name "*.ini" -exec sed -i -re 's/^(\s*)#(.*)/\1;\2/g' {} \;
 
