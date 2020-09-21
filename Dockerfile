@@ -43,6 +43,7 @@ RUN apk add --no-cache --update php-fpm@php \
     php-json@php \
     php-curl@php \
     php-redis@php \
+    php-iconv@php \
     php-xml@php && \
     ln -s /usr/bin/php7 /usr/bin/php
 
