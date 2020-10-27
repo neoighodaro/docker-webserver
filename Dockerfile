@@ -67,6 +67,8 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
 # ADD START SCRIPT, SUPERVISOR CONFIG, NGINX CONFIG AND RUN SCRIPTS.
 ADD start.sh /start.sh
 ADD config/supervisor/supervisord.conf /etc/supervisord.conf
+ADD config/supervisor/supervisord.conf /etc/supervisord_app.conf
+ADD config/supervisor/supervisord.conf /etc/supervisord_queue.conf
 ADD config/nginx/nginx.conf /etc/nginx/nginx.conf
 ADD config/nginx/site.conf /etc/nginx/sites-available/default.conf
 ADD config/php/php.ini /etc/php7/php.ini

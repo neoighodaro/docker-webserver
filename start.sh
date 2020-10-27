@@ -61,4 +61,13 @@ fi
 find /etc/php7/conf.d/ -name "*.ini" -exec sed -i -re 's/^(\s*)#(.*)/\1;\2/g' {} \;
 
 # START SUPERVISOR.
-exec /usr/bin/supervisord -n -c /etc/supervisord.conf
+if [[ ! -z "${DETACHED_LARAVEL_WORKER}" ]]; then
+  # RUN LARAVEL WORKER STANDALONE IF FLAG IS SET TO 1
+  if [[ "${DETACHED_LARAVEL_WORKER}" == "1" ]]; then
+    exec /usr/bin/supervisord -n -c /etc/supervisord_queue.conf
+  else
+    exec /usr/bin/supervisord -n -c /etc/supervisord_app.conf
+  fi
+else
+  exec /usr/bin/supervisord -n -c /etc/supervisord.conf
+fi
