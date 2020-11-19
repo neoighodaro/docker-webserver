@@ -69,6 +69,7 @@ EXPOSE ${NGINX_HTTPS_PORT} ${NGINX_HTTP_PORT}
 WORKDIR /var/www
 
 #GRANT PRIVILEGIES TO www-data user:group to read in /var/www
+RUN adduser -S www-data -u 1000
 RUN chown -R www-data:www-data /var/www
 
 # KICKSTART!
